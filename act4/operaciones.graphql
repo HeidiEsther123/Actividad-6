@@ -1,0 +1,61 @@
+# Operaciones reproducibles de la Actividad 5.
+# Cada operación se ejecuta por separado en GraphiQL, seleccionando su nombre.
+# Variables: variables/*.json (reemplazar ID_REAL_* por los ids de la base).
+
+query ExplorarCatalogo($actor: ID!) {
+  cuentas: permissionCatalog(resource: ACCOUNTS, actorCompanyUserId: $actor) {
+    ...DatosPermiso
+  }
+  movimientos: permissionCatalog(
+    resource: TRANSACTIONS
+    actorCompanyUserId: $actor
+  ) {
+    ...DatosPermiso
+  }
+}
+
+fragment DatosPermiso on Permission {
+  id
+  code
+  name
+}
+
+query RevisarConfiguracion($actor: ID!, $input: SetRolePermissionsInput!) {
+  previewRolePermissions(input: $input, actorCompanyUserId: $actor) {
+    role {
+      code
+    }
+    current {
+      code
+    }
+    toActivate {
+      code
+    }
+    toDeactivate {
+      code
+    }
+    unchanged {
+      code
+    }
+    finalCount
+  }
+}
+
+mutation AplicarConfiguracion($actor: ID!, $input: SetRolePermissionsInput!) {
+  setRolePermissions(input: $input, actorCompanyUserId: $actor) {
+    role {
+      code
+    }
+    activated {
+      code
+    }
+    deactivated {
+      code
+    }
+    unchanged {
+      code
+    }
+    finalCount
+    changed
+  }
+}

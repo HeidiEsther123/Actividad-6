@@ -1,0 +1,26 @@
+# .NET build output
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.db
+*.db-shm
+*.db-wal
+
+# Visual Studio / Rider / VS Code
+.vs/
+.idea/
+.vscode/
+*.DotSettings.user
+
+# System files
+Thumbs.db
+.DS_Store
+
+# Local secrets
+.env
+**/appsettings.Local.json

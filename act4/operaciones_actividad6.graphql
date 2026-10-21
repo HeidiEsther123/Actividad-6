@@ -1,0 +1,41 @@
+# Actividad 6. Ejecutar cada operación por separado en GraphiQL (/graphql).
+# Paso 1: login. No lleva encabezado Authorization.
+# Paso 2: copiar el token al encabezado HTTP: Authorization: Bearer <token>
+# Las operaciones de abajo ya no reciben actorCompanyUserId.
+
+mutation Entrar($input: LoginInput!) {
+  login(input: $input) {
+    tokenType
+    token
+    user {
+      name
+      email
+    }
+  }
+}
+
+mutation CrearCuenta($input: CreateAccountInput!) {
+  createAccount(input: $input) {
+    id
+    name
+  }
+}
+
+mutation CrearMovimiento($input: CreateTransactionInput!) {
+  createTransaction(input: $input) {
+    id
+  }
+}
+
+mutation AsignarRol($input: AssignRoleInput!) {
+  assignRole(input: $input) {
+    id
+  }
+}
+
+query ConsultarCuentas {
+  accounts {
+    id
+    name
+  }
+}

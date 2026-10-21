@@ -1,0 +1,13 @@
+{
+  "actor": "ID_REAL_DE_LA_MEMBRESIA_DE_ANA",
+  "input": {
+    "roleId": "ID_REAL_DE_CAPTURISTA",
+    "permissionIds": [
+      "ID_DE_ACCOUNTS_READ",
+      "ID_DE_CONCEPTS_READ",
+      "ID_DE_TRANSACTIONS_READ",
+      "ID_DE_TRANSACTIONS_WRITE",
+      "ID_DE_ACCOUNTS_WRITE"
+    ]
+  }
+}
